@@ -1,7 +1,7 @@
-package Project.model.logic;
+package by.iba.management.model.logic;
 
-import Project.model.entity.*;
-import Project.model.entity.Error;
+import by.iba.management.model.entity.*;
+import by.iba.management.model.entity.Error;
 
 import java.util.Scanner;
 

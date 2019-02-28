@@ -1,4 +1,4 @@
-package Project.model.entity;
+package by.iba.management.model.entity;
 
 
 import java.util.ArrayList;

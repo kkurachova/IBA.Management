@@ -1,7 +1,7 @@
-package Project.model.logic;
+package by.iba.management.logic;
 
-import Project.model.entity.Project;
-import Project.model.entity.ProjectsRepository;
+import by.iba.management.model.entity.Project;
+import by.iba.management.model.entity.ProjectsRepository;
 
 import java.util.List;
 import java.util.ArrayList;

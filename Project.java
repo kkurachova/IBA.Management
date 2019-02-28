@@ -1,4 +1,4 @@
-package Project.model.entity;
+package by.iba.management.model.entity;
 
 /**
  * Created by katya on 2/20/2019.

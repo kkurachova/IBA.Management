@@ -1,4 +1,4 @@
-package Project.model.logic;
+package by.iba.management.model.logic;
 
 import java.util.ArrayList;
 

@@ -18,7 +18,7 @@ public class FindEmployee {
         return listResult;
     }
 
-    public static List<Employee> findEmployeeByProjectId (long projectId) {
+    /*public static List<Employee> findEmployeeByProjectId (long projectId) {
         List<Employee> listResult = new ArrayList<>();
         for (Employee e : EmployeesRepository.getEmployeesList()) {
             if (e.getProjectId() == projectId) {
@@ -26,7 +26,7 @@ public class FindEmployee {
             }
         }
         return listResult;
-    }
+    }*/
 
     public static List<Employee> findEmployeeByEmployeeId (long employeeId) {
         List<Employee> listResult = new ArrayList<>();

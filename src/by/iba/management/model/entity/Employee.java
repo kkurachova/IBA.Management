@@ -1,6 +1,7 @@
 package by.iba.management.model.entity;
 
 public class Employee {
+    private static long temp = 0;
     private long employeeId;
     private String firstName;
     private String lastName;
@@ -12,10 +13,10 @@ public class Employee {
     private Testing testing;
     private Tools tools;
 
-    public Employee(long employeeId, String firstName, String lastName, boolean teamLead, String position,
+    public Employee(String firstName, String lastName, boolean teamLead, String position,
                     String englishLanguageLevel, ProgrammingLanguage programmingLanguage, Skills skills,
                     Testing testing, Tools tools) {
-        this.employeeId = employeeId;
+        this.employeeId = ++temp;
         this.firstName = firstName;
         this.lastName = lastName;
         this.teamLead = teamLead;
@@ -113,11 +114,7 @@ public class Employee {
         if (o == null || getClass() != o.getClass()) return false;
 
         Employee employee = (Employee) o;
-
-        if (employeeId != employee.employeeId) return false;
         if (teamLead != employee.teamLead) return false;
-        if (firstName != null ? !firstName.equals(employee.firstName) : employee.firstName != null) return false;
-        if (lastName != null ? !lastName.equals(employee.lastName) : employee.lastName != null) return false;
         if (position != null ? !position.equals(employee.position) : employee.position != null) return false;
         if (englishLanguageLevel != null ? !englishLanguageLevel.equals(employee.englishLanguageLevel) : employee.englishLanguageLevel != null)
             return false;

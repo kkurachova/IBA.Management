@@ -8,7 +8,6 @@ public class EmployeesRepository {
     private EmployeesRepository() {
     }
 
-
     public static ArrayList<Employee> getEmployeesList () {
         return employeesList;
     }

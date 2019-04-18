@@ -6,15 +6,15 @@ public class Employee {
     private String firstName;
     private String lastName;
     private boolean teamLead;
-    private String position;
-    private String englishLanguageLevel;
+    private Position position;
+    private EnglishLanguageLevel englishLanguageLevel;
     private ProgrammingLanguage programmingLanguage;
     private Skills skills;
     private Testing testing;
     private Tools tools;
 
-    public Employee(String firstName, String lastName, boolean teamLead, String position,
-                    String englishLanguageLevel, ProgrammingLanguage programmingLanguage, Skills skills,
+    public Employee(String firstName, String lastName, boolean teamLead, Position position,
+                    EnglishLanguageLevel englishLanguageLevel, ProgrammingLanguage programmingLanguage, Skills skills,
                     Testing testing, Tools tools) {
         this.employeeId = ++temp;
         this.firstName = firstName;
@@ -44,11 +44,11 @@ public class Employee {
         return teamLead;
     }
 
-    public String getPosition() {
+    public Position getPosition() {
         return position;
     }
 
-    public String getEnglishLanguageLevel() {
+    public EnglishLanguageLevel getEnglishLanguageLevel() {
         return englishLanguageLevel;
     }
 
@@ -76,11 +76,11 @@ public class Employee {
         this.teamLead = teamLead;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 
-    public void setEnglishLanguageLevel(String englishLanguageLevel) {
+    public void setEnglishLanguageLevel(EnglishLanguageLevel englishLanguageLevel) {
         this.englishLanguageLevel = englishLanguageLevel;
     }
 
@@ -114,15 +114,16 @@ public class Employee {
         if (o == null || getClass() != o.getClass()) return false;
 
         Employee employee = (Employee) o;
+
         if (teamLead != employee.teamLead) return false;
-        if (position != null ? !position.equals(employee.position) : employee.position != null) return false;
-        if (englishLanguageLevel != null ? !englishLanguageLevel.equals(employee.englishLanguageLevel) : employee.englishLanguageLevel != null)
-            return false;
+        if (position != employee.position) return false;
+        if (englishLanguageLevel != employee.englishLanguageLevel) return false;
         if (programmingLanguage != null ? !programmingLanguage.equals(employee.programmingLanguage) : employee.programmingLanguage != null)
             return false;
         if (skills != null ? !skills.equals(employee.skills) : employee.skills != null) return false;
         if (testing != null ? !testing.equals(employee.testing) : employee.testing != null) return false;
         return tools != null ? tools.equals(employee.tools) : employee.tools == null;
+
     }
 
     @Override

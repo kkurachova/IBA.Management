@@ -1,7 +1,8 @@
 package by.iba.management.model.entity;
 
+import by.iba.management.util.EmployeeIdGenerator;
+
 public class Employee {
-    private static long temp = 0;
     private long employeeId;
     private String firstName;
     private String lastName;
@@ -16,7 +17,7 @@ public class Employee {
     public Employee(String firstName, String lastName, boolean teamLead, Position position,
                     EnglishLanguageLevel englishLanguageLevel, ProgrammingLanguage programmingLanguage, Skills skills,
                     Testing testing, Tools tools) {
-        this.employeeId = ++temp;
+        this.employeeId = EmployeeIdGenerator.getEmployeed();
         this.firstName = firstName;
         this.lastName = lastName;
         this.teamLead = teamLead;

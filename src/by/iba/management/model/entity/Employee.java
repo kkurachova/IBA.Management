@@ -29,6 +29,24 @@ public class Employee {
         this.tools = tools;
     }
 
+    public Employee(boolean teamLead, Position position, EnglishLanguageLevel englishLanguageLevel,
+                    ProgrammingLanguage programmingLanguage, Skills skills, Tools tools) {
+        this.teamLead = teamLead;
+        this.position = position;
+        this.englishLanguageLevel = englishLanguageLevel;
+        this.programmingLanguage = programmingLanguage;
+        this.skills = skills;
+        this.tools = tools;
+    }
+
+    public Employee(boolean teamLead, Position position, EnglishLanguageLevel englishLanguageLevel,
+                    Testing testing) {
+        this.teamLead = teamLead;
+        this.position = position;
+        this.englishLanguageLevel = englishLanguageLevel;
+        this.testing = testing;
+    }
+
     public long getEmployeeId() {
         return employeeId;
     }

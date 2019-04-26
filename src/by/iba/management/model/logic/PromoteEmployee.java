@@ -1,103 +1,79 @@
 package by.iba.management.model.logic;
-
+import by.iba.management.model.entity.Position;
 import by.iba.management.model.entity.Employee;
 
 /**
  * Created by katya on 3/4/2019.
  */
 public class PromoteEmployee {
-    public static boolean promoteEmployee(String position, String level){
-        switch (position){
-            case "dev":
-                switch (level){
-                    case "junior":
-                        if (dev_JtoM_Promo(Employee employee)){
-                            employee.setPosition("middle");
-                        }
-                        break;
-                    case "middle":
-                        if (dev_MtoS_Promo(Employee employee)){
-                            employee.setPosition("senior");
-                        }
-                        break;
-                    case "senior":
-                        if (dev_StoL_Promo(Employee employee)){
-                            employee.setPosition("lead");
-                        }
-                        break;
-                }
-                break;
-            case "qa":
-                switch (level){
-                    case "junior":
-                        if (qa_JtoM_Promo(Employee employee)){
-                            employee.setPosition("middle");
-                        }
-                        break;
-                    case "middle":
-                        if (qa_MtoS_Promo(Employee employee)){
-                            employee.setPosition("senior");
-                        }
-                        break;
-                    case "senior":
-                        if (qa_StoL_Promo(Employee employee)){
-                            employee.setPosition("lead");
-                        }
-                        break;
-                }
-                break;
+
+    public PromoteEmployee() {}
+
+    public Position dev_JtoM_Promo(Employee employee, Employee devMiddlePattern) {
+        if (employee.isTeamLead() == (devMiddlePattern.isTeamLead()
+                && employee.getPosition().equals(devMiddlePattern.getPosition())
+                && employee.getEnglishLanguageLevel().equals(devMiddlePattern.getEnglishLanguageLevel())
+                && employee.getProgrammingLanguage().equals(devMiddlePattern.getProgrammingLanguage())
+                && employee.getSkills().equals(devMiddlePattern.getSkills())
+                && employee.getTools().equals(devMiddlePattern.getTools()))) {
+            employee.setPosition(Position.Middle_Dev);
         }
+        return Position.Middle_Dev;
     }
 
-//add for-cycle for positionPattern collection (collection to be added)
-
-    public static boolean dev_JtoM_Promo(Employee someEmployee, Employee devMiddle) {
-        return (someEmployee.teamLead.equals(devMiddle.teamLead)
-                && someEmployee.position.equals(devMiddle.position)
-                && someEmployee.englishLanguageLevel.equals(devMiddle.englishLanguageLevel)
-                && someEmployee.programmingLanguage.equals(devMiddle.programmingLanguage)
-                && someEmployee.skills.equals(devMiddle.skills)
-                && someEmployee.tools.equals(devMiddle.tools));
-
+    public Position dev_MtoS_Promo(Employee employee, Employee devSeniorPattern) {
+        if (employee.isTeamLead() == (devSeniorPattern.isTeamLead()
+                && employee.getPosition().equals(devSeniorPattern.getPosition())
+                && employee.getEnglishLanguageLevel().equals(devSeniorPattern.getEnglishLanguageLevel())
+                && employee.getProgrammingLanguage().equals(devSeniorPattern.getProgrammingLanguage())
+                && employee.getSkills().equals(devSeniorPattern.getSkills())
+                && employee.getTools().equals(devSeniorPattern.getTools()))) {
+            employee.setPosition(Position.Senior_Dev);
+        }
+        return Position.Senior_Dev;
     }
 
-    public static boolean dev_MtoS_Promo(Employee someEmployee, Employee devSenior) {
-        return (someEmployee.teamLead.equals(devSenior.teamLead)
-                && someEmployee.position.equals(devSenior.position)
-                && someEmployee.englishLanguageLevel.equals(devSenior.englishLanguageLevel)
-                && someEmployee.programmingLanguage.equals(devSenior.programmingLanguage)
-                && someEmployee.skills.equals(devSenior.skills)
-                && someEmployee.tools.equals(devSenior.tools));
+    public Position dev_StoL_Promo(Employee employee, Employee devLeadPattern) {
+        if (employee.isTeamLead() == (devLeadPattern.isTeamLead()
+                && employee.getPosition().equals(devLeadPattern.getPosition())
+                && employee.getEnglishLanguageLevel().equals(devLeadPattern.getEnglishLanguageLevel())
+                && employee.getProgrammingLanguage().equals(devLeadPattern.getProgrammingLanguage())
+                && employee.getSkills().equals(devLeadPattern.getSkills())
+                && employee.getTools().equals(devLeadPattern.getTools()))) {
+            employee.setPosition(Position.Lead_Dev);
+        }
+        return Position.Lead_Dev;
     }
 
-    public static boolean dev_StoL_Promo(Employee someEmployee, Employee devLead) {
-        return (someEmployee.teamLead.equals(devLead.teamLead)
-                && someEmployee.position.equals(devLead.position)
-                && someEmployee.englishLanguageLevel.equals(devLead.englishLanguageLevel)
-                && someEmployee.programmingLanguage.equals(devLead.programmingLanguage)
-                && someEmployee.skills.equals(devLead.skills)
-                && someEmployee.tools.equals(devLead.tools));
+    public Position qa_JtoM_Promo(Employee employee, Employee qaMiddlePattern) {
+        if (employee.isTeamLead() == (qaMiddlePattern.isTeamLead()
+                && employee.getPosition().equals(qaMiddlePattern.getPosition())
+                && employee.getEnglishLanguageLevel().equals(qaMiddlePattern.getEnglishLanguageLevel())
+                && employee.getTesting().equals(qaMiddlePattern.getTesting()))) {
+            employee.setPosition(Position.Middle_Qa);
+        }
+        return Position.Middle_Qa;
     }
 
-    public static boolean qa_JtoM_Promo(Employee someEmployee, Employee qaMiddle) {
-        return (someEmployee.teamLead.equals(qaMiddle.teamLead)
-                && someEmployee.position.equals(qaMiddle.position)
-                && someEmployee.englishLanguageLevel.equals(qaMiddle.englishLanguageLevel)
-                && someEmployee.programmingLanguage.equals(qaMiddle.midQaTestPattern));
+    public Position qa_MtoS_Promo(Employee employee, Employee qaSeniorPattern) {
+        if (employee.isTeamLead() == (qaSeniorPattern.isTeamLead()
+                && employee.getPosition().equals(qaSeniorPattern.getPosition())
+                && employee.getEnglishLanguageLevel().equals(qaSeniorPattern.getEnglishLanguageLevel())
+                && employee.getTesting().equals(qaSeniorPattern.getTesting()))) {
+            employee.setPosition(Position.Senior_Qa);
+        }
+        return Position.Senior_Qa;
     }
 
-    public static boolean qa_MtoS_Promo(Employee someEmployee, Employee qaSenior) {
-        return (someEmployee.teamLead.equals(qaSenior.teamLead)
-                && someEmployee.position.equals(qaSenior.position)
-                && someEmployee.englishLanguageLevel.equals(qaSenior.englishLanguageLevel)
-                && someEmployee.programmingLanguage.equals(qaSenior.seniorLeadQaTestPattern));
+    public Position qa_StoL_Promo(Employee employee, Employee qaLeadPattern) {
+        if (employee.isTeamLead() == (qaLeadPattern.isTeamLead()
+                && employee.getPosition().equals(qaLeadPattern.getPosition())
+                && employee.getEnglishLanguageLevel().equals(qaLeadPattern.getEnglishLanguageLevel())
+                && employee.getTesting().equals(qaLeadPattern.getTesting()))) {
+            employee.setPosition(Position.Lead_Qa);
+        }
+        return Position.Lead_Qa;
     }
 
-    public static boolean qa_StoL_Promo(Employee someEmployee, Employee qaLead) {
-        return (someEmployee.isTeamLead().equals(qaLead.isTeamLead())
-                && someEmployee.getPosition().equals(qaLead.getPosition())
-                && someEmployee.getEnglishLanguageLevel().equals(qaLead.getEnglishLanguageLevel())
-                && someEmployee.getProgrammingLanguage().equals(qaLead.getProgrammingLanguage()));
-    }
 
 }

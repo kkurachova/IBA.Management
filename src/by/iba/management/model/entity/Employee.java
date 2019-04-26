@@ -29,6 +29,8 @@ public class Employee {
         this.tools = tools;
     }
 
+    
+    //constructor for DEV pattern creation:
     public Employee(boolean teamLead, Position position, EnglishLanguageLevel englishLanguageLevel,
                     ProgrammingLanguage programmingLanguage, Skills skills, Tools tools) {
         this.teamLead = teamLead;
@@ -39,6 +41,7 @@ public class Employee {
         this.tools = tools;
     }
 
+    //constructor for QA pattern creation:
     public Employee(boolean teamLead, Position position, EnglishLanguageLevel englishLanguageLevel,
                     Testing testing) {
         this.teamLead = teamLead;
@@ -46,6 +49,34 @@ public class Employee {
         this.englishLanguageLevel = englishLanguageLevel;
         this.testing = testing;
     }
+
+    //constructor for DEV Employee creation:
+    public Employee(long employeeId, String firstName, String lastName, boolean teamLead,
+                    Position position, EnglishLanguageLevel englishLanguageLevel,
+                    ProgrammingLanguage programmingLanguage, Skills skills, Tools tools) {
+        this.employeeId = employeeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.teamLead = teamLead;
+        this.position = position;
+        this.englishLanguageLevel = englishLanguageLevel;
+        this.programmingLanguage = programmingLanguage;
+        this.skills = skills;
+        this.tools = tools;
+    }
+
+    //constructor for QA Employee creation:
+    public Employee(long employeeId, String firstName, String lastName, boolean teamLead,
+                    Position position, EnglishLanguageLevel englishLanguageLevel, Testing testing) {
+        this.employeeId = employeeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.teamLead = teamLead;
+        this.position = position;
+        this.englishLanguageLevel = englishLanguageLevel;
+        this.testing = testing;
+    }
+
 
     public long getEmployeeId() {
         return employeeId;

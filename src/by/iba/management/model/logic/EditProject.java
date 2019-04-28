@@ -2,8 +2,10 @@ package by.iba.management.model.logic;
 
 import by.iba.management.model.entity.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 /**
@@ -58,8 +60,13 @@ public class EditProject{
         return targetEmployee;
     }
 
-    public List<Employee> unassignEmployee(Employee employee){
-        List<Employee> updatedTeamList = ProjectTeamRepository.getTeamList().remove(employee);
+    public List<Employee> unassignEmployee(Employee employee, Project project){
+        List<Employee> teamList = new ArrayList<>();
+        Predicate<Employee> condition = employeeToRemove -> {
+            return (employee.getProjectId() == 0);
+        };
+        teamList.removeIf(condition);
+        List<Employee> updatedTeamList = ProjectTeamRepository.getTeamList(employee.getProjectId());
 
         return updatedTeamList;
     }

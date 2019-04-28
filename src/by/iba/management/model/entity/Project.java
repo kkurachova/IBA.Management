@@ -1,27 +1,30 @@
 package by.iba.management.model.entity;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  * Created by katya on 2/20/2019.
  */
 public class Project {
-    private static int counter = 0;
-    protected static int projectId;
+    private int counter = 0;
+    private int projectId;
     private String projectName;
     private String projectDescription;
-    private int teamSize;
-    private String[] teamList = new String[teamSize];
     int stackLength = 30;
     private String[] projectStack = new String[stackLength]; // technologies key words for a new team member search functionality
 
-    public Project(){
-        this.projectId = ++counter;
+    public Project(int counter, int projectId, String projectName, String projectDescription,
+                   String[] teamList, int stackLength, String[] projectStack) {
+        this.counter = counter;
+        this.projectId = projectId;
         this.projectName = projectName;
         this.projectDescription = projectDescription;
-        this.teamSize = teamSize;
-        this.teamList = teamList;
+        this.stackLength = stackLength;
         this.projectStack = projectStack;
-
     }
+
+    public Project() {}
 
     public int getProjectId() {
         return projectId;
@@ -35,16 +38,28 @@ public class Project {
         return projectDescription;
     }
 
-    public int getTeamSize() {
-        return teamSize;
-    }
-
-    public String[] getTeamList() {
-        return teamList;
-    }
-
     public String[] getProjectStack() {
         return projectStack;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public int getStackLength() {
+        return stackLength;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+
+   public void setStackLength(int stackLength) {
+        this.stackLength = stackLength;
     }
 
     public void setProjectName(String projectName) {
@@ -55,47 +70,41 @@ public class Project {
         this.projectDescription = projectDescription;
     }
 
-    public void setTeamList(String[] teamList) {
-        this.teamList = teamList;
-    }
-
     public void setProjectStack(String[] projectStack) {
         this.projectStack = projectStack;
     }
 
     @Override
     public String toString() {
-        return "by.iba.management{" + "projectId=" + projectId + ", projectName='" + projectName + ", projectDescription='" + projectDescription + '\'' +
-                ", teamSize=" + teamSize + ", teamList=" + teamList + ", projectStack=" + projectStack + '}';
+        return "Project{" +
+                "counter=" + counter +
+                ", projectId=" + projectId +
+                ", projectName='" + projectName + '\'' +
+                ", projectDescription='" + projectDescription + '\'' +
+                ", stackLength=" + stackLength +
+                ", projectStack=" + Arrays.toString(projectStack) +
+                '}';
     }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (!(o instanceof Project)) return false;
         Project project = (Project) o;
-
-        if (projectId != project.projectId) return false;
-        if (projectName != project.projectName) return false;
-        if (projectDescription != project.projectDescription) return false;
-        if (teamSize != project.teamSize) return false;
-        if (teamList != project.teamList) return false;
-        if (projectStack != project.projectStack) return false;
-
-        return false;
+        return getCounter() == project.getCounter() &&
+                getProjectId() == project.getProjectId() &&
+                getStackLength() == project.getStackLength() &&
+                getProjectName().equals(project.getProjectName()) &&
+                Objects.equals(getProjectDescription(), project.getProjectDescription()) &&
+                Arrays.equals(getProjectStack(), project.getProjectStack());
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (projectId ^ (projectId >>> 32));
-        result = 31 * result + (projectName != null ? projectName.hashCode() : 0);
-        result = 31 * result + (projectDescription != null ? projectDescription.hashCode() : 0);
-        result = 31 * result + (teamList != null ? teamList.hashCode() : 0);
-        result = 31 * result + (projectStack != null ? projectStack.hashCode() : 0);
-
+        int result = Objects.hash(getCounter(), getProjectId(), getProjectName(), getProjectDescription(), getStackLength());
+        result = 31 * result + Arrays.hashCode(getProjectStack());
         return result;
     }
-
 }
 

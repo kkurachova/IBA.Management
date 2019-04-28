@@ -6,6 +6,7 @@ public class Employee {
     private long employeeId;
     private String firstName;
     private String lastName;
+    private long projectId;
     private boolean teamLead;
     private Position position;
     private EnglishLanguageLevel englishLanguageLevel;
@@ -14,12 +15,13 @@ public class Employee {
     private Testing testing;
     private Tools tools;
 
-    public Employee(String firstName, String lastName, boolean teamLead, Position position,
+    public Employee(String firstName, String lastName, long projectId, boolean teamLead, Position position,
                     EnglishLanguageLevel englishLanguageLevel, ProgrammingLanguage programmingLanguage, Skills skills,
                     Testing testing, Tools tools) {
         this.employeeId = EmployeeIdGenerator.getEmployeed();
         this.firstName = firstName;
         this.lastName = lastName;
+        this.projectId = projectId;
         this.teamLead = teamLead;
         this.position = position;
         this.englishLanguageLevel = englishLanguageLevel;
@@ -29,7 +31,6 @@ public class Employee {
         this.tools = tools;
     }
 
-    
     //constructor for DEV pattern creation:
     public Employee(boolean teamLead, Position position, EnglishLanguageLevel englishLanguageLevel,
                     ProgrammingLanguage programmingLanguage, Skills skills, Tools tools) {
@@ -77,7 +78,6 @@ public class Employee {
         this.testing = testing;
     }
 
-
     public long getEmployeeId() {
         return employeeId;
     }
@@ -88,6 +88,15 @@ public class Employee {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public long getProjectId() {
+        return projectId;
+    }
+
+    public long setProjectId(long projectId) {
+        this.projectId = projectId;
+        return projectId;
     }
 
     public boolean isTeamLead() {
@@ -181,6 +190,7 @@ public class Employee {
         int result = (int) (employeeId ^ (employeeId >>> 32));
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = (int) (projectId ^ (projectId >>> 32));
         result = 31 * result + (teamLead ? 1 : 0);
         result = 31 * result + (position != null ? position.hashCode() : 0);
         result = 31 * result + (englishLanguageLevel != null ? englishLanguageLevel.hashCode() : 0);

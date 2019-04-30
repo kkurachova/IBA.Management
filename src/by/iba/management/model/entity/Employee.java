@@ -18,7 +18,7 @@ public class Employee {
     public Employee(String firstName, String lastName, long projectId, boolean teamLead, Position position,
                     EnglishLanguageLevel englishLanguageLevel, ProgrammingLanguage programmingLanguage, Skills skills,
                     Testing testing, Tools tools) {
-        this.employeeId = EmployeeIdGenerator.getEmployeed();
+        this.employeeId = EmployeeIdGenerator.getEmployeeId();
         this.firstName = firstName;
         this.lastName = lastName;
         this.projectId = projectId;

@@ -3,6 +3,7 @@ package by.iba.management.model.logic;
 import by.iba.management.model.entity.Project;
 import by.iba.management.model.entity.ProjectsRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -21,11 +22,10 @@ public class FindProject {
         }
         return listResult;
     }
-
-    public static List<Project> findEmployeeByName (String firstName, String lastName) {
+    public static List<Project> findEmployeeByName (String projectName) {
         List<Project> listResult = new ArrayList<>();
         for (Project p : ProjectsRepository.getProjectList()) {
-            if (p.getProjectName(projectName).equals(projectName)) {
+            if (p.getProjectName().equals(projectName)) {
                 listResult.add(p);
             }
         }

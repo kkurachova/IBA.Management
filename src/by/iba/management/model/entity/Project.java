@@ -1,5 +1,6 @@
 package by.iba.management.model.entity;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -11,17 +12,14 @@ public class Project {
     private int projectId;
     private String projectName;
     private String projectDescription;
-    int stackLength = 30;
-    private String[] projectStack = new String[stackLength]; // technologies key words for a new team member search functionality
+    private ArrayList<Employee> teamList = new ArrayList<>();
 
     public Project(int counter, int projectId, String projectName, String projectDescription,
-                   String[] teamList, int stackLength, String[] projectStack) {
+                   int stackLength, String[] projectStack) {
         this.counter = counter;
         this.projectId = projectId;
         this.projectName = projectName;
         this.projectDescription = projectDescription;
-        this.stackLength = stackLength;
-        this.projectStack = projectStack;
     }
 
     public Project() {}
@@ -38,17 +36,10 @@ public class Project {
         return projectDescription;
     }
 
-    public String[] getProjectStack() {
-        return projectStack;
-    }
-
     public int getCounter() {
         return counter;
     }
 
-    public int getStackLength() {
-        return stackLength;
-    }
 
     public void setCounter(int counter) {
         this.counter = counter;
@@ -58,9 +49,6 @@ public class Project {
         this.projectId = projectId;
     }
 
-   public void setStackLength(int stackLength) {
-        this.stackLength = stackLength;
-    }
 
     public void setProjectName(String projectName) {
         this.projectName = projectName;
@@ -70,8 +58,16 @@ public class Project {
         this.projectDescription = projectDescription;
     }
 
-    public void setProjectStack(String[] projectStack) {
-        this.projectStack = projectStack;
+    public ArrayList<Employee> getTeamList() {
+        return teamList;
+    }
+
+    public void addTeamList(Employee employee) {
+        teamList.add(employee);
+    }
+
+    public void removeFromTeamList(Employee employee) {
+        teamList.remove(employee);
     }
 
     @Override
@@ -81,8 +77,6 @@ public class Project {
                 ", projectId=" + projectId +
                 ", projectName='" + projectName + '\'' +
                 ", projectDescription='" + projectDescription + '\'' +
-                ", stackLength=" + stackLength +
-                ", projectStack=" + Arrays.toString(projectStack) +
                 '}';
     }
 
@@ -94,16 +88,14 @@ public class Project {
         Project project = (Project) o;
         return getCounter() == project.getCounter() &&
                 getProjectId() == project.getProjectId() &&
-                getStackLength() == project.getStackLength() &&
                 getProjectName().equals(project.getProjectName()) &&
-                Objects.equals(getProjectDescription(), project.getProjectDescription()) &&
-                Arrays.equals(getProjectStack(), project.getProjectStack());
+                Objects.equals(getProjectDescription(), project.getProjectDescription());
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(getCounter(), getProjectId(), getProjectName(), getProjectDescription(), getStackLength());
-        result = 31 * result + Arrays.hashCode(getProjectStack());
+        int result = Objects.hash(getCounter(), getProjectId(), getProjectName(), getProjectDescription());
+        result = 31 * result;
         return result;
     }
 }

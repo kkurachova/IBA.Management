@@ -12,63 +12,17 @@ import java.util.stream.Collectors;
  * Created by katya on 2/20/2019.
  */
 public class EditProject{
-    private String new_projectName;
-    private String new_projectDescription;
-
-    public EditProject(String new_projectName, String new_projectDescription) {
-        this.new_projectName = new_projectName;
-        this.new_projectDescription = new_projectDescription;
+    public void editProjectName (Project project, String newProjectName) {
+        project.setProjectName(newProjectName);
     }
-    public EditProject() {}
-
-    public String getNew_projectName() {
-        return new_projectName;
+    public void unassignEmployee(Employee employee, Project project){
+        project.removeFromTeamList(employee);
+        employee.setProjectId(0);
     }
-    public void setNew_projectName(String new_projectName) {
-        this.new_projectName = new_projectName;
-    }
-
-    public String getNew_projectDescription() {
-        return new_projectDescription;
-    }
-    public void setNew_projectDescription(String new_projectDescription) {
-        this.new_projectDescription = new_projectDescription;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof EditProject)) return false;
-        EditProject that = (EditProject) o;
-        return getNew_projectName().equals(that.getNew_projectName()) &&
-                getNew_projectDescription().equals(that.getNew_projectDescription());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getNew_projectName(), getNew_projectDescription());
-    }
-
     //assign Employee to a Project from a Project`s page
-    public List<Employee> assignEmployee(Employee employee) {
-        List<Employee> searchResult = FindEmployee.findEmployeeByEmployeeId(employee.getEmployeeId());
-        List<Employee> targetEmployee;
-        //filter the Employees list and store the result into another list
-        // so that we have the original and a modified version of the same list:
-        targetEmployee = searchResult.stream().collect(Collectors.toList());
-
-        return targetEmployee;
-    }
-
-    public List<Employee> unassignEmployee(Employee employee, Project project){
-        List<Employee> teamList = new ArrayList<>();
-        Predicate<Employee> condition = employeeToRemove -> {
-            return (employee.getProjectId() == 0);
-        };
-        teamList.removeIf(condition);
-        List<Employee> updatedTeamList = ProjectTeamRepository.getTeamList(employee.getProjectId());
-
-        return updatedTeamList;
+    public void assignEmployee(Employee employee, Project project) {
+        project.addTeamList(employee);
+        employee.setProjectId(project.getProjectId());
     }
 
     public void removeProject(Project project) {

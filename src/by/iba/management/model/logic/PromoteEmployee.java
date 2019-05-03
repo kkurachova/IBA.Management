@@ -16,9 +16,9 @@ public class PromoteEmployee {
                 && employee.getProgrammingLanguage().equals(devMiddlePattern.getProgrammingLanguage())
                 && employee.getSkills().equals(devMiddlePattern.getSkills())
                 && employee.getTools().equals(devMiddlePattern.getTools()))) {
-            employee.setPosition(Position.Middle_Dev);
+            employee.setPosition(Position.MIDDLE_DEV);
         }
-        return Position.Middle_Dev;
+        return Position.MIDDLE_DEV;
     }
 
     public Position dev_MtoS_Promo(Employee employee, Employee devSeniorPattern) {
@@ -28,9 +28,9 @@ public class PromoteEmployee {
                 && employee.getProgrammingLanguage().equals(devSeniorPattern.getProgrammingLanguage())
                 && employee.getSkills().equals(devSeniorPattern.getSkills())
                 && employee.getTools().equals(devSeniorPattern.getTools()))) {
-            employee.setPosition(Position.Senior_Dev);
+            employee.setPosition(Position.SENIOR_DEV);
         }
-        return Position.Senior_Dev;
+        return Position.SENIOR_DEV;
     }
 
     public Position dev_StoL_Promo(Employee employee, Employee devLeadPattern) {
@@ -40,9 +40,9 @@ public class PromoteEmployee {
                 && employee.getProgrammingLanguage().equals(devLeadPattern.getProgrammingLanguage())
                 && employee.getSkills().equals(devLeadPattern.getSkills())
                 && employee.getTools().equals(devLeadPattern.getTools()))) {
-            employee.setPosition(Position.Lead_Dev);
+            employee.setPosition(Position.LEAD_DEV);
         }
-        return Position.Lead_Dev;
+        return Position.LEAD_DEV;
     }
 
     public Position qa_JtoM_Promo(Employee employee, Employee qaMiddlePattern) {
@@ -50,9 +50,9 @@ public class PromoteEmployee {
                 && employee.getPosition().equals(qaMiddlePattern.getPosition())
                 && employee.getEnglishLanguageLevel().equals(qaMiddlePattern.getEnglishLanguageLevel())
                 && employee.getTesting().equals(qaMiddlePattern.getTesting()))) {
-            employee.setPosition(Position.Middle_Qa);
+            employee.setPosition(Position.MIDDLE_QA);
         }
-        return Position.Middle_Qa;
+        return Position.MIDDLE_QA;
     }
 
     public Position qa_MtoS_Promo(Employee employee, Employee qaSeniorPattern) {
@@ -60,9 +60,9 @@ public class PromoteEmployee {
                 && employee.getPosition().equals(qaSeniorPattern.getPosition())
                 && employee.getEnglishLanguageLevel().equals(qaSeniorPattern.getEnglishLanguageLevel())
                 && employee.getTesting().equals(qaSeniorPattern.getTesting()))) {
-            employee.setPosition(Position.Senior_Qa);
+            employee.setPosition(Position.SENIOR_QA);
         }
-        return Position.Senior_Qa;
+        return Position.SENIOR_QA;
     }
 
     public Position qa_StoL_Promo(Employee employee, Employee qaLeadPattern) {
@@ -70,9 +70,9 @@ public class PromoteEmployee {
                 && employee.getPosition().equals(qaLeadPattern.getPosition())
                 && employee.getEnglishLanguageLevel().equals(qaLeadPattern.getEnglishLanguageLevel())
                 && employee.getTesting().equals(qaLeadPattern.getTesting()))) {
-            employee.setPosition(Position.Lead_Qa);
+            employee.setPosition(Position.LEAD_QA);
         }
-        return Position.Lead_Qa;
+        return Position.LEAD_QA;
     }
 
 

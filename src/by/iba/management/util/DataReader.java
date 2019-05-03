@@ -17,24 +17,22 @@ import java.util.Iterator;
  */
 
 public class DataReader {
-    private static String FILE_PATH = "data/EmployeesList.xlsx";
+    private static final String FILE_PATH = "data/EmployeesList.xlsx";
     private static final Logger logger = LogManager.getRootLogger();
-    private static ArrayList<String> employeeList = new ArrayList<>();
     public static ArrayList<String> readFile() throws IOException {
+        ArrayList<String> employeeList = new ArrayList<>();
         File file = new File(FILE_PATH);
-        try (FileInputStream fis = new FileInputStream(file)) {
-            // Using XSSF for xlsx format, for xls use HSSF
-            Workbook workbook = new XSSFWorkbook(fis);
-            XSSFSheet mySheet = (XSSFSheet) workbook.getSheetAt(0);
-            //TO DO: go through rows starting from the 3rd: 
+        try (FileInputStream in = new FileInputStream(file)) {
+            XSSFWorkbook workbook = new XSSFWorkbook(in);
+            XSSFSheet mySheet = workbook.getSheetAt(0);
             for (Row row : mySheet) {
                 Iterator<Cell> cellIterator = row.cellIterator();
-                //go through columns (cells):
+                String str = new String();
                 while (cellIterator.hasNext()) {
                     Cell cell = cellIterator.next();
-                    String employeeID = cell.getStringCellValue().concat(" ");
-                    employeeList.add(employeeID);
-                    }
+                    str+=cell.getStringCellValue() + " ";
+                }
+                employeeList.add(str);
             }
         } catch (ReadEmployeesList_IOException e) {
             logger.error("File error or IO error: ", e);

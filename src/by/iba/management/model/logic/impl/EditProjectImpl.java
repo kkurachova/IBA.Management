@@ -6,6 +6,7 @@ import by.iba.management.model.entity.Project;
 import by.iba.management.model.entity.ProjectsRepository;
 import by.iba.management.model.logic.EditProject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class EditProjectImpl implements EditProject {
         employee.setProjectId(project.getProjectId());
     }
     @Override
-    public void removeProject(Project project, long projectId) {
+    public void removeProject(Project project, long projectId){
         //remove projectId from all assigned employees:
         List<Employee> teamList = new ArrayList<>();
         for (Employee e : EmployeesRepository.getEmployeesList()) {

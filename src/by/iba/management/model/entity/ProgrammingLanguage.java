@@ -37,8 +37,8 @@ public class ProgrammingLanguage {
 
     @Override
     public String toString() {
-        return "ProgrammingLanguage{" + "java=" + java + ", cPlusPlus=" + cPlusPlus + ", cSharp=" + cSharp
-                + ", php=" + php + ", dotNet=" + dotNet + '}';
+        return "ProgrammingLanguage: " + "java " + java + ", cPlusPlus " + cPlusPlus + ", cSharp " + cSharp
+                + ", php " + php + ", dotNet " + dotNet;
     }
 
     @Override

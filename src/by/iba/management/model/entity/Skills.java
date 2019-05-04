@@ -37,7 +37,12 @@ public class Skills {
 
     @Override
     public String toString() {
-        return "Skills{" + "sql=" + sql + ", javaScript=" + javaScript + ", html=" + html + ", css=" + css + ", jQuery=" + jQuery + '}';
+        return "Skills: " +
+                "sql " + sql +
+                ", javaScript " + javaScript +
+                ", html " + html +
+                ", css " + css +
+                ", jQuery " + jQuery;
     }
 
     @Override

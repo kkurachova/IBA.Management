@@ -15,10 +15,25 @@ public class Employee {
     private Testing testing;
     private Tools tools;
 
-    public Employee(String firstName, String lastName, long projectId, boolean teamLead, Position position,
+    public Employee(String firstName, String lastName, boolean teamLead, Position position,
                     EnglishLanguageLevel englishLanguageLevel, ProgrammingLanguage programmingLanguage, Skills skills,
                     Testing testing, Tools tools) {
         this.employeeId = EmployeeIdGenerator.getEmployeeId();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.teamLead = teamLead;
+        this.position = position;
+        this.englishLanguageLevel = englishLanguageLevel;
+        this.programmingLanguage = programmingLanguage;
+        this.skills = skills;
+        this.testing = testing;
+        this.tools = tools;
+    }
+
+    public Employee(long employeeId, String firstName, String lastName, long projectId, boolean teamLead,
+                    Position position, EnglishLanguageLevel englishLanguageLevel, ProgrammingLanguage programmingLanguage,
+                    Skills skills, Testing testing, Tools tools) {
+        this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.projectId = projectId;
@@ -161,10 +176,15 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" + "employeeId=" + employeeId + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' +
-                ", teamLead=" + teamLead + ", position='" + position + '\'' + ", englishLanguageLevel='" + englishLanguageLevel + '\'' +
-                ", programmingLanguage=" + programmingLanguage + ", skills=" + skills + ", testing=" + testing +
-                ", tools=" + tools + '}';
+        return "Employee{" +
+                "ID " + employeeId +
+                ", first name " + firstName +
+                ", last name " + lastName +
+                ", project ID "  + projectId +
+                ", team lead " + teamLead +
+                ", position " + position +
+                ", English level " + englishLanguageLevel + ", " +
+                programmingLanguage + ", " + skills + ", " + testing + ", " + tools + '}';
     }
 
     @Override
@@ -174,7 +194,11 @@ public class Employee {
 
         Employee employee = (Employee) o;
 
+        if (employeeId != employee.employeeId) return false;
+        if (projectId != employee.projectId) return false;
         if (teamLead != employee.teamLead) return false;
+        if (firstName != null ? !firstName.equals(employee.firstName) : employee.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(employee.lastName) : employee.lastName != null) return false;
         if (position != employee.position) return false;
         if (englishLanguageLevel != employee.englishLanguageLevel) return false;
         if (programmingLanguage != null ? !programmingLanguage.equals(employee.programmingLanguage) : employee.programmingLanguage != null)

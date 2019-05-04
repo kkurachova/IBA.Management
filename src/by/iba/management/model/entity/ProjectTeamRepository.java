@@ -1,5 +1,6 @@
 package by.iba.management.model.entity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class ProjectTeamRepository {
 
     private ProjectTeamRepository() {}
 
-    public static List<Employee> getTeamList(long projectId) {
+    public static List<Employee> getTeamList(long projectId){
         List<Employee> teamList = new ArrayList<>();
         for (Employee e : EmployeesRepository.getEmployeesList()) {
             if (e.getProjectId() == projectId) {
@@ -19,7 +20,6 @@ public class ProjectTeamRepository {
     }
 
     public static int getTeamSize(long projectId){
-        int teamSize = teamList.size();
-        return teamSize;
+        return teamList.size();
     }
 }

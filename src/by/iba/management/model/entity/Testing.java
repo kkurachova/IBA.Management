@@ -31,8 +31,8 @@ public class Testing {
 
     @Override
     public String toString() {
-        return "Testing{" + "manual=" + manual + ", automation=" + automation + ", testingDeskTopApplications="
-                + testingDeskTopApplications + ", testingMobileApplications=" + testingMobileApplications + '}';
+        return "Testing: " + "manual " + manual + ", automation " + automation + ", testing DeskTop Applications "
+                + testingDeskTopApplications + ", testing Mobile Applications " + testingMobileApplications;
     }
 
     @Override

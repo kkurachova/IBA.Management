@@ -31,8 +31,8 @@ public class Tools {
 
     @Override
     public String toString() {
-        return "Tools{" + "visualStudio=" + visualStudio + ", intellijIdea=" + intellijIdea + ", eclipse="
-                + eclipse + ", netBeans=" + netBeans + '}';
+        return "Tools: " + "Visual Studio " + visualStudio + ", Intellij Idea " + intellijIdea + ", Eclipse "
+                + eclipse + ", Net Beans " + netBeans;
     }
 
     @Override

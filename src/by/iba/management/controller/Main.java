@@ -1,5 +1,7 @@
 package by.iba.management.controller;
 
+import by.iba.management.model.entity.Employee;
+import by.iba.management.model.entity.EmployeesRepository;
 import by.iba.management.util.DataReader;
 import by.iba.management.util.DataValidator;
 
@@ -13,6 +15,9 @@ public class Main {
         for (String s : list) {
             System.out.println(s);
             System.out.println(validator.validate(s));
+        }
+        for (Employee e : EmployeesRepository.getEmployeesList()) {
+            System.out.println(e);
         }
     }
 }

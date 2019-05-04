@@ -13,7 +13,7 @@ public class DataValidator {
     }
 
     public boolean validate(final String line) {
-        //matcher = pattern.matcher(line);
+        matcher = pattern.matcher(line);
         return matcher.matches();
     }
 }

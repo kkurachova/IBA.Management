@@ -25,7 +25,7 @@ public class DataReader {
                 String str = new String();
                 while (cellIterator.hasNext()) {
                     Cell cell = cellIterator.next();
-                    str+=cell.getStringCellValue() + " ";
+                    str.concat(cell.getStringCellValue()).concat(" ");
                 }
                 employeeList.add(str);
             }

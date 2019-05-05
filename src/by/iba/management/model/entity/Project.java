@@ -1,5 +1,6 @@
 package by.iba.management.model.entity;
 
+import by.iba.management.util.EmployeeIdGenerator;
 import by.iba.management.util.ProjectIdGenerator;
 
 import java.util.ArrayList;

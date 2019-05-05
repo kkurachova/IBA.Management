@@ -6,6 +6,7 @@ import by.iba.management.model.entity.Project;
 import by.iba.management.model.entity.ProjectsRepository;
 import by.iba.management.model.logic.EditProject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,22 +19,8 @@ public class EditProjectImpl implements EditProject {
     public void editProjectDescription (Project project, String newProjectDescription) {
         project.setProjectDescription(newProjectDescription);
     }
-
-    //unassign Employee to a Project from a Project`s page
     @Override
-    public void unassignEmployee(Employee employee, Project project){
-        project.removeFromTeamList(employee);
-        employee.setProjectId(0);
-    }
-
-    //assign Employee to a Project from a Project`s page
-    @Override
-    public void assignEmployee(Employee employee, Project project) {
-        project.addTeamList(employee);
-        employee.setProjectId(project.getProjectId());
-    }
-    @Override
-    public void removeProject(Project project, long projectId){
+    public void removeProject(Project project, long projectId) {
         //remove projectId from all assigned employees:
         List<Employee> teamList = new ArrayList<>();
         for (Employee e : EmployeesRepository.getEmployeesList()) {

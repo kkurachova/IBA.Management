@@ -10,7 +10,6 @@ public class ProjectTeamRepository {
     private ProjectTeamRepository() {}
 
     public static List<Employee> getTeamList(long projectId){
-        List<Employee> teamList = new ArrayList<>();
         for (Employee e : EmployeesRepository.getEmployeesList()) {
             if (e.getProjectId() == projectId) {
                 teamList.add(e);

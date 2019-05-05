@@ -1,6 +1,5 @@
 package by.iba.management.model.entity;
 
-import by.iba.management.model.exception.ReadEmployeesList_IOException;
 import by.iba.management.util.DataParser;
 import by.iba.management.util.DataReader;
 import org.apache.log4j.LogManager;

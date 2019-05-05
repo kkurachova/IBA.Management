@@ -12,8 +12,7 @@ import java.util.List;
  * Created by katya on 2/20/2019.
  */
 public class FindProjectImpl implements FindProject {
-    private FindProjectImpl() {}
-
+    @Override
     public List<Project> findProjectById (long projectId) {
         List<Project> listResult = new ArrayList<>();
         for (Project p : ProjectsRepository.getProjectList()) {
@@ -23,6 +22,7 @@ public class FindProjectImpl implements FindProject {
         }
         return listResult;
     }
+    @Override
     public List<Project> findProjectByName (String projectName) {
         List<Project> listResult = new ArrayList<>();
         for (Project p : ProjectsRepository.getProjectList()) {

@@ -4,13 +4,7 @@ import by.iba.management.model.entity.Employee;
 import by.iba.management.model.entity.Position;
 import by.iba.management.model.logic.PromoteEmployee;
 
-/**
- * Created by katya on 3/4/2019.
- */
 public class PromoteEmployeeImpl implements PromoteEmployee {
-
-    public PromoteEmployeeImpl() {
-    }
 
     @Override
     public Position dev_JtoM_Promo(Employee employee, Employee devMiddlePattern) {

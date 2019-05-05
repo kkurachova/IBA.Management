@@ -6,7 +6,6 @@ import by.iba.management.model.entity.Project;
 import by.iba.management.model.entity.ProjectsRepository;
 import by.iba.management.model.logic.EditProject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,10 +1,8 @@
 package by.iba.management.model.logic;
+
 import by.iba.management.model.entity.Position;
 import by.iba.management.model.entity.Employee;
 
-/**
- * Created by katya on 3/4/2019.
- */
 public interface PromoteEmployee {
 
     Position dev_JtoM_Promo(Employee employee, Employee devMiddlePattern);

@@ -15,11 +15,10 @@ public class Project {
     private String projectDescription;
     private ArrayList<Employee> teamList = new ArrayList<>();
 
-    public Project(long projectId, String projectName, String projectDescription, ArrayList<Employee> teamList) {
-        this.projectId = ProjectIdGenerator.getProjectId();
+    public Project(long projectId, String projectName, String projectDescription) {
+        this.projectId = projectId;
         this.projectName = projectName;
         this.projectDescription = projectDescription;
-        this.teamList = teamList;
     }
 
     public Project() {

@@ -1,6 +1,5 @@
 package by.iba.management.model.entity;
 
-import by.iba.management.util.EmployeeIdGenerator;
 import by.iba.management.util.ProjectIdGenerator;
 
 import java.util.ArrayList;
@@ -14,11 +13,13 @@ public class Project {
     private long projectId;
     private String projectName;
     private String projectDescription;
+    private ArrayList<Employee> teamList = new ArrayList<>();
 
-    public Project(long projectId, String projectName, String projectDescription) {
+    public Project(long projectId, String projectName, String projectDescription, ArrayList<Employee> teamList) {
         this.projectId = ProjectIdGenerator.getProjectId();
         this.projectName = projectName;
         this.projectDescription = projectDescription;
+        this.teamList = teamList;
     }
 
     public Project() {
@@ -27,20 +28,37 @@ public class Project {
     public long getProjectId() {
         return projectId;
     }
+
     public String getProjectName() {
         return projectName;
     }
+
     public String getProjectDescription() {
         return projectDescription;
     }
+
     public void setProjectId(long projectId) {
         this.projectId = projectId;
     }
+
     public void setProjectName(String projectName) {
         this.projectName = projectName;
     }
+
     public void setProjectDescription(String projectDescription) {
         this.projectDescription = projectDescription;
+    }
+
+    public ArrayList<Employee> getTeamList() {
+        return teamList;
+    }
+
+    public void addTeamList(Employee employee) {
+        teamList.add(employee);
+    }
+
+    public void removeFromTeamList(Employee employee) {
+        teamList.remove(employee);
     }
 
     @Override
@@ -51,6 +69,8 @@ public class Project {
                 ", projectDescription='" + projectDescription + '\'' +
                 '}';
     }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,6 +80,7 @@ public class Project {
                 getProjectName().equals(project.getProjectName()) &&
                 Objects.equals(getProjectDescription(), project.getProjectDescription());
     }
+
     @Override
     public int hashCode() {
         int result = Objects.hash(getProjectId(), getProjectName(), getProjectDescription());

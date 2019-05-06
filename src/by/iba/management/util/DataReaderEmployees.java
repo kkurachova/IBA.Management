@@ -1,8 +1,6 @@
 package by.iba.management.util;
 
-import by.iba.management.model.exception.ReadEmployeesList_IOException;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import by.iba.management.model.exception.ReadFileIOException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -11,9 +9,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class DataReader {
+public class DataReaderEmployees {
     private static final String FILE_PATH = "data/EmployeesList.xlsx";
-    private static final Logger logger = LogManager.getRootLogger();
+    //private static final Logger logger = LogManager.getRootLogger();
     public static ArrayList<String> readFile() throws IOException {
         ArrayList<String> employeeList = new ArrayList<>();
         File file = new File(FILE_PATH);
@@ -25,17 +23,13 @@ public class DataReader {
                 String str = new String();
                 while (cellIterator.hasNext()) {
                     Cell cell = cellIterator.next();
-                    str.concat(cell.getStringCellValue()).concat(" ");
+                    str+=cell.getStringCellValue() + " ";
                 }
                 employeeList.add(str);
             }
-        } catch (ReadEmployeesList_IOException e) {
-            logger.error("File error or IO error: ", e);
+        } catch (ReadFileIOException e) {
+            //logger.error("File error or IO error: ", e);
         }
         return employeeList;
     }
 }
-
-
-
-

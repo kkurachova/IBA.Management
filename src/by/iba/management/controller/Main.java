@@ -2,22 +2,36 @@ package by.iba.management.controller;
 
 import by.iba.management.model.entity.Employee;
 import by.iba.management.model.entity.EmployeesRepository;
-import by.iba.management.util.DataReader;
-import by.iba.management.util.DataValidator;
+import by.iba.management.model.entity.Project;
+import by.iba.management.model.entity.ProjectsRepository;
+import by.iba.management.util.DataReaderEmployees;
+import by.iba.management.util.DataReaderProjects;
+import by.iba.management.util.DataValidatorEmployees;
+import by.iba.management.util.DataValidatorProjects;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        ArrayList<String> list = DataReader.readFile();
-        DataValidator validator = new DataValidator();
-        for (String s : list) {
+        ArrayList<String> listE = DataReaderEmployees.readFile();
+        DataValidatorEmployees validatorE = new DataValidatorEmployees();
+        for (String s : listE) {
             System.out.println(s);
-            System.out.println(validator.validate(s));
+            System.out.println(validatorE.validate(s));
         }
         for (Employee e : EmployeesRepository.getEmployeesList()) {
             System.out.println(e);
+        }
+
+        ArrayList<String> listP = DataReaderProjects.readFile();
+        DataValidatorProjects validatorP = new DataValidatorProjects();
+        for (String s : listP) {
+            System.out.println(s);
+            System.out.println(validatorP.validate(s));
+        }
+        for (Project p : ProjectsRepository.getProjectList()) {
+            System.out.println(p);
         }
     }
 }

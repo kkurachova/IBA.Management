@@ -1,6 +1,6 @@
 package by.iba.management.util;
 
-import by.iba.management.model.exception.ReadFile_IOException;
+import by.iba.management.model.exception.ReadFileIOException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -12,12 +12,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class DataReader_Projects {
-    private static final String FILE_PATH = "data/ProjectsList.xlsx";
+public class DataReaderProjects {
+    private static final String FILE_PATH_P = "data/ProjectsList.xlsx";
     //private static final Logger logger = LogManager.getRootLogger();
     public static ArrayList<String> readFile() throws IOException {
         ArrayList<String> projectsList = new ArrayList<>();
-        File file = new File(FILE_PATH);
+        File file = new File(FILE_PATH_P);
         try (FileInputStream in = new FileInputStream(file)) {
             XSSFWorkbook workbook = new XSSFWorkbook(in);
             XSSFSheet mySheet = workbook.getSheetAt(0);
@@ -30,7 +30,7 @@ public class DataReader_Projects {
                 }
                 projectsList.add(str);
             }
-        } catch (ReadFile_IOException e) {
+        } catch (ReadFileIOException e) {
             //logger.error("File error or IO error: ", e);
         }
         return projectsList;

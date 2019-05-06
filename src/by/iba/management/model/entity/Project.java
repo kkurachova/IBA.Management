@@ -66,7 +66,6 @@ public class Project {
                 ", projectId= " + projectId +
                 ", projectName = " + projectName + '\'' +
                 ", projectDescription = " + projectDescription + '\'' +
-                ", team = " + teamList +
                 '}';
     }
 

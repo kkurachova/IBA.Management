@@ -33,5 +33,9 @@ public class Main {
         for (Project p : ProjectsRepository.getProjectList()) {
             System.out.println(p);
         }
+        
+        ArrayList<Project> projectList = new ArrayList<>();
+        projectList.add(new Project(ProjectIdGenerator.getProjectId(), "newProject", "New Project Description"));
+        DataWriterProjects.writeProjectToFile(projectList);
     }
 }

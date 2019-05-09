@@ -30,9 +30,9 @@ public class DataWriterProjects {
 
             int rowIndex = mySheet.getLastRowNum();
             for (Project project : projectList) {
-                Row row = mySheet.createRow(rowIndex++);
+                Row row = mySheet.createRow(++rowIndex);
                 int cellIndex = 0;
-                row.createCell(cellIndex++).setCellValue(ProjectIdGenerator.getProjectId());
+                row.createCell(cellIndex++).setCellValue(String.valueOf(ProjectIdGenerator.getProjectId()));
                 row.createCell(cellIndex++).setCellValue(project.getProjectName());
                 row.createCell(cellIndex++).setCellValue(project.getProjectDescription());
             }

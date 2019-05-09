@@ -12,7 +12,7 @@ public class DataParserProjects {
         for (String str: list) {
             if (validator.validate(str)) {
                 String[] s = str.split(REGEX_SPACE);
-                Project project = new Project(s[0], s[1], s[2]);
+                Project project = new Project(Long.parseLong(s[0]), s[1], s[2]);
                 projectsList.add(project);
             }
         }

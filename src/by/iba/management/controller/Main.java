@@ -1,13 +1,8 @@
 package by.iba.management.controller;
 
-import by.iba.management.model.entity.Employee;
-import by.iba.management.model.entity.EmployeesRepository;
 import by.iba.management.model.entity.Project;
 import by.iba.management.model.entity.ProjectsRepository;
-import by.iba.management.util.DataReaderEmployees;
-import by.iba.management.util.DataReaderProjects;
-import by.iba.management.util.DataValidatorEmployees;
-import by.iba.management.util.DataValidatorProjects;
+import by.iba.management.util.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,9 +15,9 @@ public class Main {
             System.out.println(s);
             System.out.println(validatorE.validate(s));
         }
-        for (Employee e : EmployeesRepository.getEmployeesList()) {
+        /*for (Employee e : EmployeesRepository.getEmployeesList()) {
             System.out.println(e);
-        }
+        }*/
 
         ArrayList<String> listP = DataReaderProjects.readFile();
         DataValidatorProjects validatorP = new DataValidatorProjects();
@@ -32,10 +27,11 @@ public class Main {
         }
         for (Project p : ProjectsRepository.getProjectList()) {
             System.out.println(p);
+
+
+            ArrayList<Project> projectList = new ArrayList<>();
+            projectList.add(new Project(ProjectIdGenerator.getProjectId(), "newProject", "New Project Description"));
+            DataWriterProjects.writeProjectToFile(projectList);
         }
-        
-        ArrayList<Project> projectList = new ArrayList<>();
-        projectList.add(new Project(ProjectIdGenerator.getProjectId(), "newProject", "New Project Description"));
-        DataWriterProjects.writeProjectToFile(projectList);
     }
 }

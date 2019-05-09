@@ -1,7 +1,7 @@
 package by.iba.management.model.entity;
 
-import by.iba.management.util.DataParser_Projects;
-import by.iba.management.util.DataReader_Projects;
+import by.iba.management.util.DataParserProjects;
+import by.iba.management.util.DataReaderProjects;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -13,16 +13,16 @@ import java.util.ArrayList;
  */
 public class ProjectsRepository {
     private static ArrayList<Project> projectsList = new ArrayList<>();
-    private static final Logger logger = LogManager.getRootLogger();
+    //private static final Logger logger = LogManager.getRootLogger();
     private ProjectsRepository() {
+        try {
+        projectsList = DataParserProjects.parseStringToCreateProject(DataReaderProjects.readFile());
+    } catch (IOException e) {
+        //logger.error("Error reading file: ", e);
+    }
     }
 
     public static ArrayList<Project> getProjectList () {
-        try {
-            projectsList = DataParser_Projects.parseStringToCreateProject(DataReader_Projects.readFile());
-        } catch (IOException e) {
-            logger.error("Error reading file: ", e);
-        }
         return projectsList;
     }
 }

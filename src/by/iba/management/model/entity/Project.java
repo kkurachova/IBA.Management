@@ -9,19 +9,19 @@ import java.util.Objects;
  * Created by katya on 2/20/2019.
  */
 public class Project {
-    private String projectId;
+    private long projectId;
     private String projectName;
     private String projectDescription;
     private ArrayList<Employee> teamList = new ArrayList<>();
 
-    public Project(String projectId, String projectName, String projectDescription) {
+    public Project(long projectId, String projectName, String projectDescription) {
         this.projectId = ProjectIdGenerator.getProjectId();
         this.projectName = projectName;
         this.projectDescription = projectDescription;
     }
 
     public long getProjectId() {
-        return Long.parseLong(projectId);
+        return projectId;
     }
 
     public String getProjectName() {
@@ -33,7 +33,7 @@ public class Project {
     }
 
     public void setProjectId(long projectId) {
-        this.projectId = String.valueOf(projectId);
+        this.projectId = projectId;
     }
 
     public void setProjectName(String projectName) {
